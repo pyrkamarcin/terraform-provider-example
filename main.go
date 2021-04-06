@@ -4,13 +4,13 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"github.com/pyrkamarcin/terraform-provider-example/example"
+	"github.com/pyrkamarcin/terraform-provider-example/epiphany"
 )
 
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
 		ProviderFunc: func() *schema.Provider {
-			return example.Provider()
+			return epiphany.Provider()
 		},
 	})
 }

@@ -1,22 +1,22 @@
-package example
+package epiphany
 
 import (
 	"context"
+	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	uuid "github.com/satori/go.uuid"
 )
 
 func Provider() *schema.Provider {
 	return &schema.Provider{
 		ResourcesMap: map[string]*schema.Resource{
-			"example_server": resourceServer(),
+			"example_cluster": resourceEpiphanyCluster(),
 		},
 		ConfigureContextFunc: providerConfigure,
 	}
 }
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	id, _ := uuid.NewV4()
+	id, _ := uuid.NewUUID()
 	runner := Runner{
 		id:   id,
 		name: "test runner instance",

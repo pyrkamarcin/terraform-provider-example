@@ -1,4 +1,4 @@
-default: clean build install
+default: clean build install test
 
 clean:
 	rm -rf .terraform
